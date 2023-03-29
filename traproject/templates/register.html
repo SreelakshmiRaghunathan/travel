@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Form</title>
+        <style>
+        *{
+    box-sizing: border-box;
+}
+body{
+
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    margin:0;
+}
+.container{
+    background: linear-gradient(to bottom, #33cccc 2%, #003366 100%);
+    border-radius: 10px;
+    box-shadow: 10px 20px 25px black;
+    overflow: hidden;
+    max-width: 100%;
+    width: 40%;
+}
+.header{
+    border-bottom: 1px sold #f0f0f0;
+<!--   background-color: #f7f7f7;-->
+   padding:40px 40px;
+}
+.header h2{
+    margin: 0;
+    text-align: center;
+}
+.form{
+    padding: 5px 50px;
+}
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.form-control label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.form-control input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+.form-control input:focus{
+    outline: none;
+    border-color: #f7f7f7;
+}
+
+
+.form button{
+    background-color: #0099cc;
+    border:none;
+    color : white;
+    display: block;
+    font-size: 20px;
+    width:100%;
+    margin-top: 20px;
+    padding:10px;
+    border-radius: 12px;
+
+}
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <div class = "header">
+            <br>
+            <h2>Create a new account</h2>
+        </div>
+        <form class="form" id="form" method="POST" action="register" >
+            {% csrf_token %}
+            <div class="form-control">
+                <label>Username:</label>
+                <input type="text" placeholder="Enter your Username" name="uname">
+            </div>
+
+            <div class="form-control">
+                <label>First name:</label>
+                <input type="text" placeholder="Enter your first name" name="fname">
+
+            </div>
+            <div class="form-control">
+                <label>Last name:</label>
+                <input type="text" placeholder="Enter your last name" name="lname">
+
+            </div>
+            <div class="form-control">
+                <label>Email:</label>
+                <input type="email" placeholder="Enter your email address" name="email" >
+            </div>
+            <div class="form-control">
+                <label>Password:</label>
+                <input type="password" placeholder="Enter your password" name="pwd" >
+
+            </div>
+            <div class="form-control">
+                <label>Confirm password:</label>
+                <input type="password" placeholder="Confirm password" name="pwd2" >
+            </div>
+            <button input type="submit"  id="button">SIGN UP</button>
+
+         </form>
+        {% for msg in messages %}
+        {{msg}}
+        {% endfor %}
+    </div>
+</body>
+</html>
